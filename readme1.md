@@ -645,3 +645,768 @@ console.log(student);
 ```
 
 ---
+
+
+# JavaScript Operators
+
+Operators are special symbols or keywords used to perform operations on variables and values.
+
+Example:
+
+```javascript
+let a = 10;
+let b = 5;
+
+let result = a + b;
+
+console.log(result);
+```
+
+Output:
+
+```
+15
+```
+
+JavaScript provides different types of operators:
+
+1. Arithmetic Operators
+2. Assignment Operators
+3. Comparison Operators
+4. Logical Operators
+5. Unary Operators
+6. Ternary Operator
+7. Bitwise Operators
+8. String Operators
+9. Type Operators
+10. Optional Chaining Operator
+
+---
+
+# 1. Arithmetic Operators
+
+Arithmetic operators are used to perform mathematical calculations.
+
+| Operator | Name | Example |
+|----------|------|---------|
+| + | Addition | a + b |
+| - | Subtraction | a - b |
+| * | Multiplication | a * b |
+| / | Division | a / b |
+| % | Modulus | a % b |
+| ** | Exponentiation | a ** b |
+| ++ | Increment | a++ |
+| -- | Decrement | a-- |
+
+---
+
+## Addition Operator (+)
+
+The addition operator adds two values.
+
+Example:
+
+```javascript
+let a = 20;
+let b = 10;
+
+console.log(a + b);
+```
+
+Output:
+
+```
+30
+```
+
+---
+
+## Subtraction Operator (-)
+
+The subtraction operator subtracts one value from another.
+
+Example:
+
+```javascript
+let a = 20;
+let b = 10;
+
+console.log(a - b);
+```
+
+Output:
+
+```
+10
+```
+
+---
+
+## Multiplication Operator (*)
+
+The multiplication operator multiplies two values.
+
+Example:
+
+```javascript
+let price = 100;
+let quantity = 5;
+
+console.log(price * quantity);
+```
+
+Output:
+
+```
+500
+```
+
+---
+
+## Division Operator (/)
+
+The division operator divides one value by another.
+
+Example:
+
+```javascript
+let total = 100;
+let number = 5;
+
+console.log(total / number);
+```
+
+Output:
+
+```
+20
+```
+
+---
+
+## Modulus Operator (%)
+
+The modulus operator returns the remainder after division.
+
+Example:
+
+```javascript
+let number = 10;
+
+console.log(number % 3);
+```
+
+Output:
+
+```
+1
+```
+
+---
+
+## Exponentiation Operator (**)
+
+The exponentiation operator is used to calculate power.
+
+Example:
+
+```javascript
+let result = 2 ** 3;
+
+console.log(result);
+```
+
+Output:
+
+```
+8
+```
+
+---
+
+## Increment Operator (++)
+
+The increment operator increases a value by 1.
+
+Example:
+
+```javascript
+let count = 5;
+
+count++;
+
+console.log(count);
+```
+
+Output:
+
+```
+6
+```
+
+---
+
+## Decrement Operator (--)
+
+The decrement operator decreases a value by 1.
+
+Example:
+
+```javascript
+let count = 5;
+
+count--;
+
+console.log(count);
+```
+
+Output:
+
+```
+4
+```
+
+---
+
+# 2. Assignment Operators
+
+Assignment operators are used to assign values to variables.
+
+| Operator | Description |
+|----------|-------------|
+| = | Assign value |
+| += | Add and assign |
+| -= | Subtract and assign |
+| *= | Multiply and assign |
+| /= | Divide and assign |
+| %= | Modulus and assign |
+
+---
+
+## Assignment (=)
+
+Example:
+
+```javascript
+let name = "JavaScript";
+
+console.log(name);
+```
+
+Output:
+
+```
+JavaScript
+```
+
+---
+
+## Add Assignment (+=)
+
+Example:
+
+```javascript
+let value = 10;
+
+value += 5;
+
+console.log(value);
+```
+
+Output:
+
+```
+15
+```
+
+---
+
+## Subtract Assignment (-=)
+
+Example:
+
+```javascript
+let value = 20;
+
+value -= 5;
+
+console.log(value);
+```
+
+Output:
+
+```
+15
+```
+
+---
+
+## Multiply Assignment (*=)
+
+Example:
+
+```javascript
+let value = 5;
+
+value *= 3;
+
+console.log(value);
+```
+
+Output:
+
+```
+15
+```
+
+---
+
+# 3. Comparison Operators
+
+Comparison operators compare two values and return either:
+
+- true
+- false
+
+
+| Operator | Description |
+|----------|-------------|
+| == | Equal to |
+| === | Strict equal |
+| != | Not equal |
+| !== | Strict not equal |
+| > | Greater than |
+| < | Less than |
+| >= | Greater than or equal |
+| <= | Less than or equal |
+
+---
+
+## Equal Operator (==)
+
+Checks only value.
+
+Example:
+
+```javascript
+console.log(10 == "10");
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## Strict Equal Operator (===)
+
+Checks value and data type.
+
+Example:
+
+```javascript
+console.log(10 === "10");
+```
+
+Output:
+
+```
+false
+```
+
+---
+
+## Not Equal Operator (!=)
+
+Example:
+
+```javascript
+console.log(10 != 5);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## Greater Than (>)
+
+Example:
+
+```javascript
+console.log(20 > 10);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## Less Than (<)
+
+Example:
+
+```javascript
+console.log(5 < 10);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+# 4. Logical Operators
+
+Logical operators are used to combine multiple conditions.
+
+| Operator | Name |
+|----------|------|
+| && | AND |
+| || | OR |
+| ! | NOT |
+
+---
+
+## AND Operator (&&)
+
+Returns true when all conditions are true.
+
+Example:
+
+```javascript
+let age = 25;
+
+console.log(age >= 18 && age <= 30);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## OR Operator (||)
+
+Returns true when at least one condition is true.
+
+Example:
+
+```javascript
+let marks = 80;
+
+console.log(marks > 90 || marks > 70);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## NOT Operator (!)
+
+Reverses the boolean value.
+
+Example:
+
+```javascript
+let login = false;
+
+console.log(!login);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+# 5. Unary Operators
+
+Unary operators work with only one operand.
+
+Examples:
+
+- typeof
+- delete
+- increment
+- decrement
+
+
+---
+
+## typeof Operator
+
+The typeof operator returns the data type.
+
+Example:
+
+```javascript
+let value = 100;
+
+console.log(typeof value);
+```
+
+Output:
+
+```
+number
+```
+
+Example:
+
+```javascript
+let name = "John";
+
+console.log(typeof name);
+```
+
+Output:
+
+```
+string
+```
+
+---
+
+## delete Operator
+
+The delete operator removes properties from objects.
+
+Example:
+
+```javascript
+let user = {
+    name: "John",
+    age: 25
+};
+
+delete user.age;
+
+console.log(user);
+```
+
+Output:
+
+```
+{name: "John"}
+```
+
+---
+
+# 6. Ternary Operator
+
+The ternary operator is a short form of if-else statement.
+
+Syntax:
+
+```javascript
+condition ? trueValue : falseValue;
+```
+
+Example:
+
+```javascript
+let age = 18;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);
+```
+
+Output:
+
+```
+Adult
+```
+
+---
+
+# 7. Bitwise Operators
+
+Bitwise operators work with binary numbers.
+
+| Operator | Name |
+|----------|------|
+| & | AND |
+| | | OR |
+| ^ | XOR |
+| ~ | NOT |
+| << | Left Shift |
+| >> | Right Shift |
+
+Example:
+
+```javascript
+let a = 5;
+let b = 1;
+
+console.log(a & b);
+```
+
+Output:
+
+```
+1
+```
+
+---
+
+# 8. String Operators
+
+The + operator is also used to join strings.
+
+Example:
+
+```javascript
+let firstName = "John";
+let lastName = "Smith";
+
+console.log(firstName + " " + lastName);
+```
+
+Output:
+
+```
+John Smith
+```
+
+---
+
+# 9. Type Operators
+
+JavaScript provides operators to check data types.
+
+## typeof Operator
+
+Example:
+
+```javascript
+console.log(typeof "Hello");
+```
+
+Output:
+
+```
+string
+```
+
+---
+
+## instanceof Operator
+
+The instanceof operator checks whether an object belongs to a specific type.
+
+Example:
+
+```javascript
+let numbers = [1,2,3];
+
+console.log(numbers instanceof Array);
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+# 10. Optional Chaining Operator (?.)
+
+Optional chaining allows safe access to object properties.
+
+Example:
+
+```javascript
+let user = {
+    profile:{
+        name:"Alex"
+    }
+};
+
+console.log(user.profile?.name);
+```
+
+Output:
+
+```
+Alex
+```
+
+If the property does not exist:
+
+```javascript
+console.log(user.address?.city);
+```
+
+Output:
+
+```
+undefined
+```
+
+---
+
+# Operator Precedence
+
+Operator precedence decides the order in which operations are performed.
+
+Example:
+
+```javascript
+let result = 10 + 5 * 2;
+
+console.log(result);
+```
+
+Output:
+
+```
+20
+```
+
+Explanation:
+
+```
+5 * 2 = 10
+
+10 + 10 = 20
+```
+
+Multiplication has higher priority than addition.
+
+---
+
+# Summary
+
+JavaScript operators are used for:
+
+- Mathematical calculations
+- Assigning values
+- Comparing values
+- Creating logical conditions
+- Checking data types
+- Working with strings
+- Performing conditional operations
+
+
+Understanding operators is an important foundation for JavaScript programming.
