@@ -475,77 +475,721 @@ function togglePassword(){
 }
 ```
 
----
 
-# Interview Questions
 
-### Basic
 
-1. What is DOM?
 
-2. Why is DOM used?
 
-3. What is Document Object?
+# 📘 JavaScript Advanced - Scope
 
-4. Difference between HTML and DOM?
-
-5. What is getElementById()?
-
-6. Difference between querySelector() and querySelectorAll()?
-
-7. Difference between innerHTML and innerText?
-
-8. Difference between innerText and textContent?
-
-9. What is an Event?
-
-10. What is addEventListener()?
+> **Module:** Advanced JavaScript  
+> **Topic:** Scope  
+> **Level:** Beginner to Advanced
 
 ---
 
-# Practice Exercises
+# 📖 What is Scope?
 
-✅ Change heading color.
+In JavaScript, **Scope** determines **where a variable or function can be accessed** within your program.
 
-✅ Read user input.
+In simple words:
 
-✅ Display user input in paragraph.
+> **Scope defines the visibility and accessibility of variables and functions.**
 
-✅ Increase Counter.
-
-✅ Hide Paragraph.
-
-✅ Show Paragraph.
-
-✅ Change Image.
-
-✅ Create New Button.
-
-✅ Remove Paragraph.
-
-✅ Build a Digital Clock.
+If a variable is inside a particular scope, it can only be accessed where that scope allows.
 
 ---
 
-# Summary
+# Why Do We Need Scope?
 
-Today you learned
+Scope helps us to:
 
-- What is DOM
-- DOM Tree
-- getElementById()
-- querySelector()
-- querySelectorAll()
-- innerHTML
-- innerText
-- textContent
-- style
-- value
-- createElement()
-- appendChild()
-- remove()
-- Events
-- onclick
-- oninput
-- addEventListener()
+- Prevent variable conflicts
+- Improve code organization
+- Increase security by hiding variables
+- Reduce bugs
+- Make code easier to maintain
+- Control the lifetime of variables
+
+---
+
+# Real-Life Example
+
+Imagine a school.
+
+- 🌍 **Playground** → Everyone can access it. (Global Scope)
+- 🏫 **Classroom** → Only students of that class can enter. (Function Scope)
+- 📚 **Library Reading Room** → Only people inside the room can use it. (Block Scope)
+
+Similarly, JavaScript variables have different levels of accessibility.
+
+---
+
+# Types of Scope
+
+JavaScript has **three main types of scope**:
+
+1. Global Scope
+2. Function Scope
+3. Block Scope
+
+---
+
+# 1️⃣ Global Scope
+
+A variable declared **outside all functions and blocks** belongs to the **Global Scope**.
+
+A global variable can be accessed from anywhere in the program.
+
+## Syntax
+
+```javascript
+let company = "OpenAI";
+```
+
+---
+
+## Example 1
+
+```javascript
+let language = "JavaScript";
+
+function showLanguage() {
+    console.log(language);
+}
+
+console.log(language);
+
+showLanguage();
+```
+
+### Output
+
+```
+JavaScript
+JavaScript
+```
+
+---
+
+## Example 2
+
+```javascript
+let country = "India";
+
+function state() {
+    console.log(country);
+}
+
+function city() {
+    console.log(country);
+}
+
+state();
+city();
+```
+
+### Output
+
+```
+India
+India
+```
+
+---
+
+# Global Scope Diagram
+
+```
+Global Scope
+
+│
+
+├── Function A
+
+│      │
+│      └── Can Access Global Variable
+
+│
+
+├── Function B
+
+│      │
+│      └── Can Access Global Variable
+```
+
+---
+
+# 2️⃣ Function Scope
+
+Variables declared inside a function are called **Function Scoped Variables**.
+
+These variables are only accessible inside that function.
+
+---
+
+## Example
+
+```javascript
+function student() {
+
+    let name = "Durgesh";
+
+    console.log(name);
+
+}
+
+student();
+```
+
+### Output
+
+```
+Durgesh
+```
+
+---
+
+Trying to access it outside the function:
+
+```javascript
+console.log(name);
+```
+
+### Output
+
+```
+ReferenceError: name is not defined
+```
+
+---
+
+## Another Example
+
+```javascript
+function add() {
+
+    let a = 10;
+    let b = 20;
+
+    console.log(a + b);
+
+}
+
+add();
+```
+
+Output
+
+```
+30
+```
+
+Outside
+
+```javascript
+console.log(a);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# Function Scope Diagram
+
+```
+Global Scope
+
+│
+
+└── add()
+
+      │
+
+      ├── a
+
+      ├── b
+
+      └── Accessible only here
+```
+
+---
+
+# 3️⃣ Block Scope
+
+A block is created using curly braces `{ }`.
+
+Variables declared with **let** and **const** are **Block Scoped**.
+
+---
+
+## Example
+
+```javascript
+if (true) {
+
+    let city = "Lucknow";
+
+    console.log(city);
+
+}
+```
+
+Output
+
+```
+Lucknow
+```
+
+Outside
+
+```javascript
+console.log(city);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+## Another Example
+
+```javascript
+{
+
+    const pi = 3.14;
+
+    console.log(pi);
+
+}
+```
+
+Output
+
+```
+3.14
+```
+
+Outside
+
+```javascript
+console.log(pi);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# Block Scope Diagram
+
+```
+if()
+
+│
+
+├── city
+
+└── Accessible only inside this block
+```
+
+---
+
+# Scope Chain
+
+When JavaScript cannot find a variable inside the current scope, it searches in the outer scope.
+
+This process continues until the variable is found or the global scope is reached.
+
+This is called the **Scope Chain**.
+
+---
+
+## Example
+
+```javascript
+let company = "OpenAI";
+
+function first() {
+
+    function second() {
+
+        console.log(company);
+
+    }
+
+    second();
+
+}
+
+first();
+```
+
+Output
+
+```
+OpenAI
+```
+
+---
+
+# Scope Chain Flow
+
+```
+second()
+
+↓
+
+first()
+
+↓
+
+Global Scope
+
+↓
+
+Found company
+```
+
+---
+
+# Nested Scope
+
+A child scope can access variables from its parent scope.
+
+The parent scope **cannot** access variables declared inside the child scope.
+
+---
+
+## Example
+
+```javascript
+let country = "India";
+
+function state() {
+
+    let city = "Lucknow";
+
+    console.log(country);
+
+    console.log(city);
+
+}
+
+state();
+```
+
+Output
+
+```
+India
+Lucknow
+```
+
+Outside
+
+```javascript
+console.log(city);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# Lexical Scope
+
+JavaScript follows **Lexical Scope**.
+
+This means a function can access variables based on **where it is written**, not where it is called.
+
+---
+
+## Example
+
+```javascript
+let language = "JavaScript";
+
+function outer() {
+
+    let version = "ES6";
+
+    function inner() {
+
+        console.log(language);
+
+        console.log(version);
+
+    }
+
+    inner();
+
+}
+
+outer();
+```
+
+Output
+
+```
+JavaScript
+ES6
+```
+
+---
+
+# var vs let vs const
+
+## Using var
+
+```javascript
+if (true) {
+
+    var number = 100;
+
+}
+
+console.log(number);
+```
+
+Output
+
+```
+100
+```
+
+Why?
+
+Because **var is NOT Block Scoped**.
+
+---
+
+## Using let
+
+```javascript
+if (true) {
+
+    let number = 100;
+
+}
+
+console.log(number);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+## Using const
+
+```javascript
+if (true) {
+
+    const number = 100;
+
+}
+
+console.log(number);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# Scope Comparison Table
+
+| Feature | var | let | const |
+|---------|-----|-----|-------|
+| Global Scope | ✅ | ✅ | ✅ |
+| Function Scope | ✅ | ✅ | ✅ |
+| Block Scope | ❌ | ✅ | ✅ |
+| Redeclare | ✅ | ❌ | ❌ |
+| Reassign | ✅ | ✅ | ❌ |
+
+---
+
+# Global vs Function vs Block Scope
+
+| Scope Type | Accessible From |
+|------------|-----------------|
+| Global Scope | Everywhere |
+| Function Scope | Inside the Function Only |
+| Block Scope | Inside the Block `{}` Only |
+
+---
+
+# Best Practices
+
+✅ Use `const` by default.
+
+✅ Use `let` when the value needs to change.
+
+❌ Avoid using `var` in modern JavaScript because it ignores block scope and can cause unexpected bugs.
+
+---
+
+# Practice Programs
+
+## Program 1
+
+```javascript
+let a = 10;
+
+function demo() {
+
+    console.log(a);
+
+}
+
+demo();
+```
+
+Output
+
+```
+10
+```
+
+---
+
+## Program 2
+
+```javascript
+function demo() {
+
+    let a = 20;
+
+}
+
+console.log(a);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+## Program 3
+
+```javascript
+if (true) {
+
+    var x = 100;
+
+}
+
+console.log(x);
+```
+
+Output
+
+```
+100
+```
+
+---
+
+## Program 4
+
+```javascript
+if (true) {
+
+    let x = 100;
+
+}
+
+console.log(x);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+## Program 5
+
+```javascript
+const name = "Durgesh";
+
+function greet() {
+
+    console.log(name);
+
+}
+
+greet();
+```
+
+Output
+
+```
+Durgesh
+```
+
+---
+
+# Common Mistakes
+
+❌ Accessing a function variable outside the function.
+
+```javascript
+function demo() {
+    let x = 10;
+}
+
+console.log(x);
+```
+
+Result:
+
+```
+ReferenceError
+```
+
+---
+
+❌ Using `var` inside blocks expecting block scope.
+
+```javascript
+if (true) {
+    var age = 22;
+}
+
+console.log(age);
+```
+
+Output
+
+```
+22
+```
+
+
 
