@@ -2092,3 +2092,788 @@ switch (operator) {
 ---
 
 
+# 📘 JavaScript Notes - Functions
+
+> **Module:** JavaScript Fundamentals
+> **Topic:** Functions
+> **Level:** Beginner to Advanced
+
+---
+
+# 📖 What is a Function?
+
+A **Function** is a reusable block of code that performs a specific task.
+
+Instead of writing the same code again and again, we write it once inside a function and call it whenever needed.
+
+## Definition
+
+> **A function is a block of code designed to perform a particular task. It executes only when it is called (invoked).**
+
+---
+
+# Why Do We Use Functions?
+
+Functions help us to:
+
+- Reuse code
+- Reduce code duplication
+- Improve readability
+- Make debugging easier
+- Break large programs into smaller modules
+- Increase maintainability
+
+---
+
+# Real-Life Example
+
+Imagine you make tea every morning.
+
+Instead of remembering every step every day:
+
+- Boil Water
+- Add Tea
+- Add Sugar
+- Add Milk
+
+You simply call a process called **makeTea()**.
+
+The same concept applies in JavaScript.
+
+```
+Start
+
+↓
+
+Call Function
+
+↓
+
+Execute Code
+
+↓
+
+Return Result
+
+↓
+
+Continue Program
+```
+
+---
+
+# Syntax of Function
+
+```javascript
+function functionName() {
+
+    // Code
+
+}
+```
+
+Example
+
+```javascript
+function greet() {
+    console.log("Welcome to JavaScript");
+}
+
+greet();
+```
+
+Output
+
+```
+Welcome to JavaScript
+```
+
+---
+
+# Function with Parameters
+
+Parameters are variables that receive values.
+
+```javascript
+function greet(name) {
+    console.log("Welcome " + name);
+}
+
+greet("Durgesh");
+```
+
+Output
+
+```
+Welcome Durgesh
+```
+
+---
+
+# Function with Multiple Parameters
+
+```javascript
+function add(a, b) {
+    console.log(a + b);
+}
+
+add(10,20);
+```
+
+Output
+
+```
+30
+```
+
+---
+
+# Parameters vs Arguments
+
+| Parameter | Argument |
+|------------|----------|
+| Variables in function definition | Actual values passed while calling |
+| Receive data | Send data |
+
+Example
+
+```javascript
+function add(a,b){
+
+}
+
+add(10,20);
+```
+
+Here
+
+```
+a,b → Parameters
+
+10,20 → Arguments
+```
+
+---
+
+# Return Statement
+
+The return keyword sends a value back from a function.
+
+```javascript
+function add(a,b){
+
+    return a+b;
+
+}
+
+let result = add(20,30);
+
+console.log(result);
+```
+
+Output
+
+```
+50
+```
+
+---
+
+# Types of Functions
+
+JavaScript provides many types of functions.
+
+1. Function Declaration
+2. Function Expression
+3. Anonymous Function
+4. Arrow Function
+5. Immediately Invoked Function (IIFE)
+6. Callback Function
+7. Higher Order Function
+8. Constructor Function
+9. Generator Function
+10. Recursive Function
+
+---
+
+# 1. Function Declaration
+
+Also called **Named Function**.
+
+Syntax
+
+```javascript
+function greet(){
+
+}
+```
+
+Example
+
+```javascript
+function greet(){
+
+    console.log("Hello Students");
+
+}
+
+greet();
+```
+
+Output
+
+```
+Hello Students
+```
+
+### Features
+
+- Has a name
+- Hoisted
+- Can be called before declaration
+
+Example
+
+```javascript
+greet();
+
+function greet(){
+
+    console.log("Hello");
+
+}
+```
+
+Output
+
+```
+Hello
+```
+
+---
+
+# 2. Function Expression
+
+A function stored inside a variable.
+
+Syntax
+
+```javascript
+const variable = function(){
+
+};
+```
+
+Example
+
+```javascript
+const greet = function(){
+
+    console.log("Hello JavaScript");
+
+};
+
+greet();
+```
+
+Output
+
+```
+Hello JavaScript
+```
+
+### Features
+
+- Stored inside variable
+- Not hoisted like declaration
+- More common in modern JavaScript
+
+Example
+
+```javascript
+sayHello();
+
+const sayHello = function(){
+
+    console.log("Hello");
+
+};
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# 3. Anonymous Function
+
+A function without a name.
+
+Example
+
+```javascript
+const greet = function(){
+
+    console.log("Hello");
+
+};
+
+greet();
+```
+
+Another Example
+
+```javascript
+setTimeout(function(){
+
+    console.log("Executed");
+
+},2000);
+```
+
+Output
+
+```
+Executed
+```
+
+Anonymous functions are mostly used
+
+- Events
+- Timers
+- Callback Functions
+
+---
+
+# 4. Arrow Function (ES6)
+
+Introduced in ES6.
+
+Short syntax.
+
+Syntax
+
+```javascript
+const functionName = ()=>{
+
+}
+```
+
+Example
+
+```javascript
+const greet = ()=>{
+
+    console.log("Hello");
+
+};
+
+greet();
+```
+
+Output
+
+```
+Hello
+```
+
+---
+
+# Arrow Function with Parameters
+
+```javascript
+const add = (a,b)=>{
+
+    return a+b;
+
+}
+
+console.log(add(10,20));
+```
+
+Output
+
+```
+30
+```
+
+---
+
+# Arrow Function (Short Form)
+
+```javascript
+const square = number => number * number;
+
+console.log(square(5));
+```
+
+Output
+
+```
+25
+```
+
+---
+
+# Difference Between Normal Function and Arrow Function
+
+| Normal Function | Arrow Function |
+|----------------|----------------|
+| Uses function keyword | Uses => |
+| Has its own this | Doesn't have its own this |
+| Can be Constructor | Cannot be Constructor |
+| Supports arguments object | Doesn't support arguments |
+
+---
+
+# 5. Immediately Invoked Function Expression (IIFE)
+
+Runs immediately after creation.
+
+Syntax
+
+```javascript
+(function(){
+
+})();
+```
+
+Example
+
+```javascript
+(function(){
+
+    console.log("Application Started");
+
+})();
+```
+
+Output
+
+```
+Application Started
+```
+
+---
+
+# 6. Callback Function
+
+A function passed as an argument to another function.
+
+Example
+
+```javascript
+function greet(name){
+
+    console.log("Hello " + name);
+
+}
+
+function processUser(callback){
+
+    callback("Durgesh");
+
+}
+
+processUser(greet);
+```
+
+Output
+
+```
+Hello Durgesh
+```
+
+Another Example
+
+```javascript
+setTimeout(function(){
+
+    console.log("Executed after 3 seconds");
+
+},3000);
+```
+
+---
+
+# 7. Higher Order Function
+
+A function that
+
+- Accepts another function
+- Returns another function
+
+Example
+
+```javascript
+function calculator(operation,a,b){
+
+    return operation(a,b);
+
+}
+
+function add(a,b){
+
+    return a+b;
+
+}
+
+console.log(calculator(add,10,20));
+```
+
+Output
+
+```
+30
+```
+
+---
+
+# 8. Recursive Function
+
+A function that calls itself.
+
+Example
+
+```javascript
+function countdown(number){
+
+    if(number==0){
+
+        return;
+
+    }
+
+    console.log(number);
+
+    countdown(number-1);
+
+}
+
+countdown(5);
+```
+
+Output
+
+```
+5
+4
+3
+2
+1
+```
+
+---
+
+# 9. Constructor Function
+
+Used to create objects.
+
+```javascript
+function Student(name,age){
+
+    this.name=name;
+    this.age=age;
+
+}
+
+const s1 = new Student("Durgesh",22);
+
+console.log(s1);
+```
+
+Output
+
+```
+Student { name: 'Durgesh', age: 22 }
+```
+
+---
+
+# Function Scope
+
+```javascript
+function demo(){
+
+    let name="Durgesh";
+
+    console.log(name);
+
+}
+
+demo();
+```
+
+Output
+
+```
+Durgesh
+```
+
+Outside
+
+```javascript
+console.log(name);
+```
+
+Output
+
+```
+ReferenceError
+```
+
+---
+
+# Default Parameters
+
+```javascript
+function greet(name="Guest"){
+
+    console.log(name);
+
+}
+
+greet();
+```
+
+Output
+
+```
+Guest
+```
+
+---
+
+# Rest Parameter
+
+```javascript
+function total(...numbers){
+
+    console.log(numbers);
+
+}
+
+total(10,20,30,40);
+```
+
+Output
+
+```
+[10,20,30,40]
+```
+
+---
+
+# Spread Operator
+
+```javascript
+const numbers=[10,20,30];
+
+console.log(...numbers);
+```
+
+Output
+
+```
+10 20 30
+```
+
+---
+
+# Practice Programs
+
+## Addition
+
+```javascript
+function add(a,b){
+
+    return a+b;
+
+}
+
+console.log(add(10,20));
+```
+
+---
+
+## Even or Odd
+
+```javascript
+function evenOdd(number){
+
+    if(number%2==0)
+
+        return "Even";
+
+    return "Odd";
+
+}
+
+console.log(evenOdd(15));
+```
+
+---
+
+## Find Maximum
+
+```javascript
+function max(a,b){
+
+    return a>b?a:b;
+
+}
+
+console.log(max(10,25));
+```
+
+---
+
+## Factorial
+
+```javascript
+function factorial(n){
+
+    if(n==1)
+
+        return 1;
+
+    return n*factorial(n-1);
+
+}
+
+console.log(factorial(5));
+```
+
+Output
+
+```
+120
+```
+
+---
+
+## Reverse String
+
+```javascript
+function reverse(text){
+
+    return text.split("").reverse().join("");
+
+}
+
+console.log(reverse("JavaScript"));
+```
+
+Output
+
+```
+tpircSavaJ
+```
+
+
+
+
+
