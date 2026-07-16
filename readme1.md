@@ -1396,17 +1396,699 @@ Multiplication has higher priority than addition.
 
 ---
 
-# Summary
+# 📘 JavaScript Notes - Condition Statements
 
-JavaScript operators are used for:
+> **Module:** JavaScript Fundamentals  
+> **Topic:** Conditional Statements  
+> **Level:** Beginner to Intermediate
 
-- Mathematical calculations
-- Assigning values
-- Comparing values
-- Creating logical conditions
-- Checking data types
-- Working with strings
-- Performing conditional operations
+---
+
+# 📖 What is a Conditional Statement?
+
+A **Conditional Statement** is used to make decisions in a JavaScript program.
+
+It allows the program to execute different blocks of code depending on whether a condition is **true** or **false**.
+
+### Real-Life Example
+
+Imagine you are logging into a website.
+
+- If the username and password are correct → Login Successfully ✅
+- Otherwise → Show "Invalid Credentials" ❌
+
+This is called **Decision Making**.
+
+---
+
+# Why do we use Conditional Statements?
+
+Conditional statements help us:
+
+- Make decisions
+- Control program flow
+- Execute different code based on conditions
+- Validate user input
+- Handle different scenarios
+
+---
+
+# Flow of Condition Statement
+
+```
+
+Start
+|
+Check Condition
+|
+True? ---------------- No
+| |
+Execute Code Execute Other Code
+|
+End
+
+```
+
+---
+
+# Types of Conditional Statements
+
+JavaScript provides the following conditional statements:
+
+1. if Statement
+2. if...else Statement
+3. else if Statement
+4. Nested if Statement
+5. switch Statement
+6. Ternary Operator (Short-hand if...else)
+
+---
+
+# 1. if Statement
+
+The `if` statement executes code only when the condition is true.
+
+## Syntax
+
+```javascript
+if (condition) {
+    // code
+}
+```
+
+## Example 1
+
+```javascript
+let age = 20;
+
+if (age >= 18) {
+    console.log("You can vote.");
+}
+```
+
+### Output
+
+```
+You can vote.
+```
+
+---
+
+## Example 2
+
+```javascript
+let marks = 90;
+
+if (marks >= 35) {
+    console.log("Pass");
+}
+```
+
+Output
+
+```
+Pass
+```
+
+---
+
+## Example 3
+
+```javascript
+let isLoggedIn = true;
+
+if (isLoggedIn) {
+    console.log("Welcome User");
+}
+```
+
+Output
+
+```
+Welcome User
+```
+
+---
+
+# 2. if...else Statement
+
+If the condition is true, the `if` block runs.
+
+Otherwise, the `else` block runs.
+
+## Syntax
+
+```javascript
+if (condition) {
+    // true block
+}
+else {
+    // false block
+}
+```
+
+---
+
+## Example 1
+
+```javascript
+let age = 16;
+
+if (age >= 18) {
+    console.log("Eligible");
+}
+else {
+    console.log("Not Eligible");
+}
+```
+
+Output
+
+```
+Not Eligible
+```
+
+---
+
+## Example 2
+
+```javascript
+let number = 10;
+
+if (number % 2 == 0) {
+    console.log("Even Number");
+}
+else {
+    console.log("Odd Number");
+}
+```
+
+Output
+
+```
+Even Number
+```
+
+---
+
+## Example 3
+
+```javascript
+let password = "admin123";
+
+if (password === "admin123") {
+    console.log("Login Successful");
+}
+else {
+    console.log("Wrong Password");
+}
+```
+
+Output
+
+```
+Login Successful
+```
+
+---
+
+# 3. else if Statement
+
+Used when multiple conditions need to be checked.
+
+## Syntax
+
+```javascript
+if (condition1) {
+
+}
+else if (condition2) {
+
+}
+else {
+
+}
+```
+
+---
+
+## Example 1 (Student Grade)
+
+```javascript
+let marks = 82;
+
+if (marks >= 90) {
+    console.log("Grade A+");
+}
+else if (marks >= 75) {
+    console.log("Grade A");
+}
+else if (marks >= 60) {
+    console.log("Grade B");
+}
+else if (marks >= 35) {
+    console.log("Grade C");
+}
+else {
+    console.log("Fail");
+}
+```
+
+Output
+
+```
+Grade A
+```
+
+---
+
+## Example 2 (Weather)
+
+```javascript
+let weather = "Rainy";
+
+if (weather == "Sunny") {
+    console.log("Go Outside");
+}
+else if (weather == "Rainy") {
+    console.log("Take an Umbrella");
+}
+else {
+    console.log("Stay Home");
+}
+```
+
+Output
+
+```
+Take an Umbrella
+```
+
+---
+
+# 4. Nested if Statement
+
+An `if` statement inside another `if` statement.
+
+## Syntax
+
+```javascript
+if (condition1) {
+
+    if (condition2) {
+
+    }
+
+}
+```
+
+---
+
+## Example
+
+```javascript
+let username = "admin";
+let password = "12345";
+
+if (username == "admin") {
+
+    if (password == "12345") {
+        console.log("Login Successful");
+    }
+    else {
+        console.log("Incorrect Password");
+    }
+
+}
+else {
+    console.log("Username Not Found");
+}
+```
+
+Output
+
+```
+Login Successful
+```
+
+---
+
+# 5. switch Statement
+
+The `switch` statement is used when there are multiple possible values for one variable.
+
+## Syntax
+
+```javascript
+switch (expression) {
+
+    case value1:
+        // code
+        break;
+
+    case value2:
+        // code
+        break;
+
+    default:
+        // code
+
+}
+```
+
+---
+
+## Example 1
+
+```javascript
+let day = 3;
+
+switch (day) {
+
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    case 3:
+        console.log("Wednesday");
+        break;
+
+    default:
+        console.log("Invalid Day");
+
+}
+```
+
+Output
+
+```
+Wednesday
+```
+
+---
+
+## Example 2
+
+```javascript
+let color = "red";
+
+switch (color) {
+
+    case "red":
+        console.log("Stop");
+        break;
+
+    case "yellow":
+        console.log("Ready");
+        break;
+
+    case "green":
+        console.log("Go");
+        break;
+
+    default:
+        console.log("Unknown Color");
+
+}
+```
+
+Output
+
+```
+Stop
+```
+
+---
+
+# 6. Ternary Operator
+
+A shorthand version of `if...else`.
+
+## Syntax
+
+```javascript
+condition ? trueValue : falseValue;
+```
+
+---
+
+## Example 1
+
+```javascript
+let age = 20;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);
+```
+
+Output
+
+```
+Adult
+```
+
+---
+
+## Example 2
+
+```javascript
+let number = 15;
+
+console.log(number % 2 == 0 ? "Even" : "Odd");
+```
+
+Output
+
+```
+Odd
+```
+
+---
+
+# Comparison Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| == | Equal | 10 == "10" |
+| === | Strict Equal | 10 === 10 |
+| != | Not Equal | 10 != 20 |
+| !== | Strict Not Equal | 10 !== "10" |
+| > | Greater Than | 20 > 10 |
+| < | Less Than | 10 < 20 |
+| >= | Greater Than or Equal | 10 >= 10 |
+| <= | Less Than or Equal | 10 <= 20 |
+
+---
+
+# Logical Operators
+
+## AND (&&)
+
+Returns true only if all conditions are true.
+
+```javascript
+let age = 22;
+let citizen = true;
+
+if (age >= 18 && citizen) {
+    console.log("Eligible to Vote");
+}
+```
+
+---
+
+## OR (||)
+
+Returns true if at least one condition is true.
+
+```javascript
+let isStudent = false;
+let hasID = true;
+
+if (isStudent || hasID) {
+    console.log("Entry Allowed");
+}
+```
+
+---
+
+## NOT (!)
+
+Reverses the boolean value.
+
+```javascript
+let isLoggedIn = false;
+
+if (!isLoggedIn) {
+    console.log("Please Login");
+}
+```
+
+---
+
+# Truthy and Falsy Values
+
+## Falsy Values
+
+```javascript
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+```
+
+Everything else is considered **Truthy**.
+
+---
+
+## Example
+
+```javascript
+let name = "";
+
+if (name) {
+    console.log("Name Exists");
+}
+else {
+    console.log("Name is Empty");
+}
+```
+
+Output
+
+```
+Name is Empty
+```
+
+---
+
+# Difference Between if...else and switch
+
+| if...else | switch |
+|------------|---------|
+| Checks conditions | Checks values |
+| Supports ranges | Best for exact values |
+| Can use logical operators | Cannot directly use logical operators |
+| Better for complex logic | Better for menus/options |
+
+---
+
+# Best Practices
+
+- Use `===` instead of `==`.
+- Keep conditions simple and readable.
+- Use `switch` when checking many fixed values.
+- Use the ternary operator only for short conditions.
+- Avoid deeply nested `if` statements.
+- Add comments for complex conditions.
+
+---
+
+# Practice Programs
+
+### 1. Check Positive or Negative Number
+
+```javascript
+let number = -5;
+
+if (number > 0) {
+    console.log("Positive");
+}
+else if (number < 0) {
+    console.log("Negative");
+}
+else {
+    console.log("Zero");
+}
+```
+
+---
+
+### 2. Find Largest Number
+
+```javascript
+let a = 15;
+let b = 20;
+
+if (a > b) {
+    console.log("A is Greater");
+}
+else {
+    console.log("B is Greater");
+}
+```
+
+---
+
+### 3. Voting Eligibility
+
+```javascript
+let age = 17;
+
+if (age >= 18) {
+    console.log("Eligible");
+}
+else {
+    console.log("Not Eligible");
+}
+```
+
+---
+
+### 4. Leap Year Checker
+
+```javascript
+let year = 2024;
+
+if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+    console.log("Leap Year");
+}
+else {
+    console.log("Not a Leap Year");
+}
+```
+
+---
+
+### 5. Calculator using switch
+
+```javascript
+let num1 = 20;
+let num2 = 10;
+let operator = "+";
+
+switch (operator) {
+
+    case "+":
+        console.log(num1 + num2);
+        break;
+
+    case "-":
+        console.log(num1 - num2);
+        break;
+
+    case "*":
+        console.log(num1 * num2);
+        break;
+
+    case "/":
+        console.log(num1 / num2);
+        break;
+
+    default:
+        console.log("Invalid Operator");
+}
+```
+
+---
 
 
-Understanding operators is an important foundation for JavaScript programming.
