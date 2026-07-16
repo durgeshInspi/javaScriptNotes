@@ -480,13 +480,7 @@ function togglePassword(){
 
 
 
-# 📘 JavaScript Advanced - Scope
 
-> **Module:** Advanced JavaScript  
-> **Topic:** Scope  
-> **Level:** Beginner to Advanced
-
----
 
 # 📖 What is Scope?
 
