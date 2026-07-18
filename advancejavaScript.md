@@ -801,7 +801,7 @@ const students = [
 
     {
         id:1,
-        name:"Durgesh",
+        name:"abcd",
         age:22
     },
 
@@ -828,7 +828,7 @@ Output
 
 ```text
 [
-"Durgesh",
+"abcd",
 "Rahul",
 "Amit"
 ]
@@ -842,7 +842,7 @@ Output
 const employees = [
 
     {
-        name:"Durgesh",
+        name:"abcd",
         salary:50000
     },
 
@@ -873,7 +873,7 @@ Output
 ```javascript
 [
 {
-name:"Durgesh",
+name:"abcd",
 salary:55000
 },
 {
@@ -931,7 +931,7 @@ Output
 const students = [
 
     {
-        name:"Durgesh",
+        name:"abcd",
         pass:true
     },
 
@@ -957,7 +957,7 @@ Output
 ```javascript
 [
 {
-name:"Durgesh",
+name:"abcd",
 pass:true
 },
 {
@@ -975,7 +975,7 @@ pass:true
 const employees = [
 
     {
-        name:"Durgesh",
+        name:"abcd",
         salary:60000
     },
 
@@ -1001,7 +1001,7 @@ Output
 ```javascript
 [
 {
-name:"Durgesh",
+name:"abcd",
 salary:60000
 },
 {
@@ -1195,7 +1195,7 @@ We can combine Higher-Order Functions together.
 const students = [
 
     {
-        name:"Durgesh",
+        name:"abcd",
         marks:80
     },
 
@@ -1224,7 +1224,7 @@ Output
 
 ```text
 [
-"Durgesh",
+"abcd",
 "Amit"
 ]
 ```
@@ -1293,11 +1293,2614 @@ const result = numbers
 
 ---
 
+
+# What is ES6?
+
+**ES6 (ECMAScript 2015)** introduced many modern JavaScript features that make code shorter, cleaner, and easier to read.
+
+Some popular ES6 features are:
+
+- let and const
+- Arrow Functions
+- Template Literals
+- Destructuring
+- Rest Operator
+- Spread Operator
+- Default Parameters
+- Classes
+- Modules
+- Promises
+
+---
+
+# What is Destructuring?
+
+**Destructuring** is an ES6 feature that allows us to extract values from an **array** or **object** and store them directly into variables.
+
+Instead of writing multiple lines of code, we can extract values in a single line.
+
+---
+
+## Without Destructuring
+
+```javascript
+const student = {
+    name: "abcd",
+    age: 22,
+    city: "Lucknow"
+};
+
+const name = student.name;
+const age = student.age;
+const city = student.city;
+
+console.log(name);
+console.log(age);
+console.log(city);
+```
+
+---
+
+## With Destructuring
+
+```javascript
+const student = {
+    name: "abcd",
+    age: 22,
+    city: "Lucknow"
+};
+
+const { name, age, city } = student;
+
+console.log(name);
+console.log(age);
+console.log(city);
+```
+
+Output
+
+```text
+abcd
+22
+Lucknow
+```
+
+---
+
+# Why Do We Use Destructuring?
+
+- Less code
+- Cleaner syntax
+- Easy to read
+- Faster access to values
+- Commonly used in React and API responses
+
+---
+
+# Array Destructuring
+
+```javascript
+const numbers = [10, 20, 30];
+
+const [a, b, c] = numbers;
+
+console.log(a);
+console.log(b);
+console.log(c);
+```
+
+Output
+
+```text
+10
+20
+30
+```
+
+---
+
+# Skip Values
+
+```javascript
+const numbers = [10,20,30,40];
+
+const [first, , third] = numbers;
+
+console.log(first);
+console.log(third);
+```
+
+Output
+
+```text
+10
+30
+```
+
+---
+
+# Default Values
+
+```javascript
+const numbers = [10];
+
+const [a, b = 100] = numbers;
+
+console.log(a);
+console.log(b);
+```
+
+Output
+
+```text
+10
+100
+```
+
+---
+
+# Object Destructuring
+
+```javascript
+const student = {
+    name: "abcd",
+    age: 22,
+    city: "Lucknow"
+};
+
+const { name, age, city } = student;
+
+console.log(name);
+console.log(age);
+console.log(city);
+```
+
+Output
+
+```text
+abcd
+22
+Lucknow
+```
+
+---
+
+# Rename Variables
+
+```javascript
+const student = {
+    name: "abcd",
+    age: 22
+};
+
+const { name: studentName } = student;
+
+console.log(studentName);
+```
+
+Output
+
+```text
+abcd
+```
+
+---
+
+# Nested Object Destructuring
+
+```javascript
+const user = {
+
+    id: 1,
+
+    profile: {
+
+        name: "abcd",
+
+        city: "Lucknow"
+
+    }
+
+};
+
+const {
+
+    profile: {
+
+        name,
+
+        city
+
+    }
+
+} = user;
+
+console.log(name);
+console.log(city);
+```
+
+Output
+
+```text
+abcd
+Lucknow
+```
+
+---
+
+# Destructuring Function Parameters
+
+```javascript
+function printUser({ name, age }) {
+
+    console.log(name);
+
+    console.log(age);
+
+}
+
+const student = {
+
+    name: "abcd",
+
+    age: 22
+
+};
+
+printUser(student);
+```
+
+---
+
+# What is Rest Operator?
+
+The **Rest Operator (`...`)** collects multiple values into a single array or object.
+
+Think of it as:
+
+> **Collect the remaining values.**
+
+---
+
+# Rest Operator with Arrays
+
+```javascript
+const numbers = [10,20,30,40,50];
+
+const [a, b, ...rest] = numbers;
+
+console.log(a);
+console.log(b);
+console.log(rest);
+```
+
+Output
+
+```text
+10
+20
+[30,40,50]
+```
+
+---
+
+# Visualization
+
+```
+[10,20,30,40,50]
+
+↓
+
+a = 10
+
+b = 20
+
+rest = [30,40,50]
+```
+
+---
+
+# Rest Operator with Objects
+
+```javascript
+const student = {
+
+    name: "abcd",
+
+    age: 22,
+
+    city: "Lucknow",
+
+    country: "India"
+
+};
+
+const { name, ...details } = student;
+
+console.log(details);
+```
+
+Output
+
+```javascript
+{
+    age:22,
+    city:"Lucknow",
+    country:"India"
+}
+```
+
+---
+
+# Rest Operator in Functions
+
+```javascript
+function sum(...numbers){
+
+    console.log(numbers);
+
+}
+
+sum(10,20,30,40,50);
+```
+
+Output
+
+```text
+[10,20,30,40,50]
+```
+
+---
+
+# Sum Using Rest Operator
+
+```javascript
+function sum(...numbers){
+
+    return numbers.reduce((total,number)=>total+number,0);
+
+}
+
+console.log(sum(10,20,30,40));
+```
+
+Output
+
+```text
+100
+```
+
+---
+
+# What is Spread Operator?
+
+The **Spread Operator (`...`)** expands an array or object into individual values.
+
+Think of it as:
+
+> **Expand all values.**
+
+---
+
+# Copy Array
+
+```javascript
+const numbers = [10,20,30];
+
+const copy = [...numbers];
+
+console.log(copy);
+```
+
+Output
+
+```text
+[10,20,30]
+```
+
+---
+
+# Merge Arrays
+
+```javascript
+const arr1 = [10,20];
+
+const arr2 = [30,40];
+
+const result = [...arr1,...arr2];
+
+console.log(result);
+```
+
+Output
+
+```text
+[10,20,30,40]
+```
+
+---
+
+# Add New Values
+
+```javascript
+const numbers = [20,30];
+
+const result = [10,...numbers,40];
+
+console.log(result);
+```
+
+Output
+
+```text
+[10,20,30,40]
+```
+
+---
+
+# Copy Object
+
+```javascript
+const student = {
+
+    name: "abcd",
+
+    age: 22
+
+};
+
+const copy = {
+
+    ...student
+
+};
+
+console.log(copy);
+```
+
+Output
+
+```javascript
+{
+    name:"abcd",
+    age:22
+}
+```
+
+---
+
+# Merge Objects
+
+```javascript
+const student = {
+
+    name:"abcd"
+
+};
+
+const address = {
+
+    city:"Lucknow"
+
+};
+
+const user = {
+
+    ...student,
+
+    ...address
+
+};
+
+console.log(user);
+```
+
+Output
+
+```javascript
+{
+    name:"abcd",
+    city:"Lucknow"
+}
+```
+
+---
+
+# Override Object Properties
+
+```javascript
+const student = {
+
+    name:"abcd",
+
+    age:22
+
+};
+
+const updatedStudent = {
+
+    ...student,
+
+    age:25
+
+};
+
+console.log(updatedStudent);
+```
+
+Output
+
+```javascript
+{
+    name:"abcd",
+    age:25
+}
+```
+
+---
+
+# Rest vs Spread Operator
+
+| Rest Operator | Spread Operator |
+|--------------|----------------|
+| Collects values | Expands values |
+| Used on the left side of `=` | Used on the right side of `=` |
+| Creates one array/object | Expands array/object |
+| Used in function parameters | Used while copying or merging |
+
+---
+
+# Easy Trick to Remember
+
+## Destructuring
+
+```
+Take values out
+```
+
+```
+Object
+
+↓
+
+Variables
+```
+
+---
+
+## Rest Operator
+
+```
+Collect remaining values
+```
+
+```
+10
+
+20
+
+30
+
+40
+
+↓
+
+rest
+
+↓
+
+[30,40]
+```
+
+---
+
+## Spread Operator
+
+```
+Expand values
+```
+
+```
+[10,20,30]
+
+↓
+
+10
+
+20
+
+30
+```
+
+---
+
+# Real-World Examples
+
+## Destructuring
+
+- API Response
+- React Props
+- React State
+- Function Parameters
+
+---
+
+## Rest Operator
+
+- Unlimited Function Arguments
+- Remaining Object Properties
+- Remaining Array Values
+
+---
+
+## Spread Operator
+
+- Copy Arrays
+- Copy Objects
+- Merge Arrays
+- Merge Objects
+- Update React State
+- Clone Data
+
+---
+
+
+# JavaScript Exception Handling (try...catch)
+
+## Table of Contents
+
+1. Introduction to Exception Handling
+2. What is try...catch?
+3. Why Do We Use try...catch?
+4. How try...catch Works
+5. try Block
+6. catch Block
+7. Error Object
+8. finally Block
+9. throw Statement
+10. Custom Errors
+11. Real-World Examples
+12. try...catch with async/await
+13. Best Practices
+14. Interview Questions
+15. Summary
+
+---
+
+# Introduction to Exception Handling
+
+In JavaScript, errors can occur while a program is running. These errors are called **Exceptions** or **Runtime Errors**.
+
+If we don't handle these errors, the program may stop executing.
+
+To avoid this problem, JavaScript provides **Exception Handling** using the `try...catch` statement.
+
+---
+
+# What is try...catch?
+
+The `try...catch` statement is used to handle runtime errors in JavaScript.
+
+Instead of crashing the application, JavaScript catches the error and allows the remaining code to continue executing.
+
+In simple words:
+
+> **try...catch allows your program to continue running even if an error occurs.**
+
+---
+
+# Why Do We Use try...catch?
+
+We use `try...catch` because:
+
+- Prevents application crashes
+- Handles runtime errors
+- Displays user-friendly error messages
+- Continues program execution
+- Helps in debugging
+- Commonly used with APIs and databases
+
+---
+
+# How try...catch Works
+
+```text
+Program Starts
+
+↓
+
+try Block Executes
+
+↓
+
+Error Found?
+
+↓
+
+No
+↓
+
+Continue Program
+
+OR
+
+Yes
+↓
+
+catch Block Executes
+
+↓
+
+Continue Program
+
+↓
+
+finally Block (if available)
+```
+
+---
+
+# Syntax
+
+```javascript
+try {
+
+    // Code that may produce an error
+
+}
+catch(error){
+
+    // Handle the error
+
+}
+```
+
+---
+
+# try Block
+
+The `try` block contains code that may throw an error.
+
+If no error occurs, the `catch` block is skipped.
+
+Example
+
+```javascript
+try{
+
+    console.log("Hello World");
+
+}
+catch(error){
+
+    console.log(error);
+
+}
+```
+
+Output
+
+```text
+Hello World
+```
+
+---
+
+# Example with Error
+
+```javascript
+try{
+
+    console.log(user);
+
+}
+catch(error){
+
+    console.log("Error Found");
+
+}
+```
+
+Output
+
+```text
+Error Found
+```
+
+---
+
+# Without try...catch
+
+```javascript
+console.log("Program Started");
+
+console.log(user);
+
+console.log("Program Finished");
+```
+
+Output
+
+```text
+Program Started
+
+ReferenceError: user is not defined
+```
+
+The program stops immediately.
+
+---
+
+# With try...catch
+
+```javascript
+console.log("Program Started");
+
+try{
+
+    console.log(user);
+
+}
+catch(error){
+
+    console.log("User variable not found.");
+
+}
+
+console.log("Program Finished");
+```
+
+Output
+
+```text
+Program Started
+
+User variable not found.
+
+Program Finished
+```
+
+The program continues executing.
+
+---
+
+# catch Block
+
+The `catch` block executes only if an error occurs inside the `try` block.
+
+Syntax
+
+```javascript
+catch(error){
+
+}
+```
+
+The `error` parameter contains complete information about the error.
+
+---
+
+# Error Object
+
+JavaScript automatically creates an **Error Object**.
+
+Example
+
+```javascript
+try{
+
+    console.log(data);
+
+}
+catch(error){
+
+    console.log(error);
+
+}
+```
+
+---
+
+# error.message
+
+Returns the error message.
+
+```javascript
+try{
+
+    console.log(data);
+
+}
+catch(error){
+
+    console.log(error.message);
+
+}
+```
+
+Output
+
+```text
+data is not defined
+```
+
+---
+
+# error.name
+
+Returns the type of error.
+
+```javascript
+try{
+
+    console.log(data);
+
+}
+catch(error){
+
+    console.log(error.name);
+
+}
+```
+
+Output
+
+```text
+ReferenceError
+```
+
+---
+
+# error.stack
+
+Returns the complete stack trace.
+
+```javascript
+try{
+
+    console.log(data);
+
+}
+catch(error){
+
+    console.log(error.stack);
+
+}
+```
+
+---
+
+# finally Block
+
+The `finally` block always executes whether an error occurs or not.
+
+Syntax
+
+```javascript
+try{
+
+}
+catch(error){
+
+}
+finally{
+
+}
+```
+
+---
+
+# Example
+
+```javascript
+try{
+
+    console.log("Database Connected");
+
+}
+catch(error){
+
+    console.log(error);
+
+}
+finally{
+
+    console.log("Database Connection Closed");
+
+}
+```
+
+Output
+
+```text
+Database Connected
+
+Database Connection Closed
+```
+
+---
+
+# Example with Error
+
+```javascript
+try{
+
+    console.log(user);
+
+}
+catch(error){
+
+    console.log(error.message);
+
+}
+finally{
+
+    console.log("Execution Completed");
+
+}
+```
+
+Output
+
+```text
+user is not defined
+
+Execution Completed
+```
+
+---
+
+# throw Statement
+
+The `throw` statement is used to create custom errors.
+
+Syntax
+
+```javascript
+throw new Error("Message");
+```
+
+---
+
+# Example
+
+```javascript
+try{
+
+    let age = 15;
+
+    if(age < 18){
+
+        throw new Error("Age must be 18 or above.");
+
+    }
+
+    console.log("Eligible");
+
+}
+catch(error){
+
+    console.log(error.message);
+
+}
+```
+
+Output
+
+```text
+Age must be 18 or above.
+```
+
+---
+
+# Example: Division by Zero
+
+```javascript
+function divide(a,b){
+
+    try{
+
+        if(b===0){
+
+            throw new Error("Cannot divide by zero.");
+
+        }
+
+        console.log(a/b);
+
+    }
+    catch(error){
+
+        console.log(error.message);
+
+    }
+
+}
+
+divide(20,0);
+```
+
+Output
+
+```text
+Cannot divide by zero.
+```
+
+---
+
+# Example: JSON Parsing
+
+```javascript
+try{
+
+    const user = JSON.parse('{"name":"abcd"}');
+
+    console.log(user);
+
+}
+catch(error){
+
+    console.log("Invalid JSON");
+
+}
+```
+
+Output
+
+```javascript
+{
+    name: "abcd"
+}
+```
+
+---
+
+# Example: Invalid JSON
+
+```javascript
+try{
+
+    JSON.parse("{name:'abcd'}");
+
+}
+catch(error){
+
+    console.log("Invalid JSON Format");
+
+}
+```
+
+Output
+
+```text
+Invalid JSON Format
+```
+
+---
+
+# Real-World Example: Login Validation
+
+```javascript
+function login(username,password){
+
+    try{
+
+        if(username===""){
+
+            throw new Error("Username is required.");
+
+        }
+
+        if(password===""){
+
+            throw new Error("Password is required.");
+
+        }
+
+        console.log("Login Successful");
+
+    }
+    catch(error){
+
+        console.log(error.message);
+
+    }
+
+}
+
+login("","123456");
+```
+
+Output
+
+```text
+Username is required.
+```
+
+---
+
+# try...catch with async/await
+
+One of the most common uses of `try...catch` is with `async/await`.
+
+```javascript
+async function getUsers(){
+
+    try{
+
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        const data = await response.json();
+
+        console.log(data);
+
+    }
+    catch(error){
+
+        console.log(error.message);
+
+    }
+
+}
+```
+
+---
+
+# Best Practices
+
+- Use `try...catch` only for code that may throw errors.
+- Do not leave the `catch` block empty.
+- Display meaningful error messages.
+- Use `finally` for cleanup operations.
+- Use `throw` to create custom errors.
+- Combine `try...catch` with `async/await` for API calls.
+
+---
+
+# Difference Between try, catch, finally, and throw
+
+| Keyword | Purpose |
+|----------|---------|
+| `try` | Contains code that may throw an error |
+| `catch` | Handles the error |
+| `finally` | Executes whether an error occurs or not |
+| `throw` | Creates a custom error |
+
+---
+
+# Real-World Uses
+
+`try...catch` is used in:
+
+- API Calls
+- Fetch API
+- Axios
+- Database Operations
+- File Reading
+- JSON Parsing
+- Payment Processing
+- User Authentication
+- Form Validation
+- Cloud Services
+
+
+----
+
+
+
+# JavaScript Synchronous Programming, Asynchronous Programming, Async & Await
+
+## Table of Contents
+
+1. Introduction
+2. What is Synchronous Programming?
+3. Characteristics of Synchronous Programming
+4. How Synchronous Programming Works
+5. Real-Life Example
+6. Synchronous Programming Example
+7. What is Asynchronous Programming?
+8. Characteristics of Asynchronous Programming
+9. How Asynchronous Programming Works
+10. Real-Life Example
+11. Asynchronous Programming Example
+12. Difference Between Synchronous and Asynchronous
+13. What is `async`?
+14. What is `await`?
+15. Why Do We Need `async/await`?
+16. Promise vs Async/Await
+17. Using `async` and `await`
+18. Multiple `await` Example
+19. `async/await` with `try...catch`
+20. Real-World Uses
+21. Best Practices
+22. Interview Questions
+23. Summary
+
+---
+
+# Introduction
+
+JavaScript is a **single-threaded programming language**, meaning it executes one instruction at a time.
+
+However, many operations take time to complete, such as:
+
+- API Calls
+- Database Queries
+- File Uploads
+- File Downloads
+- Payment Processing
+- Reading Files
+- Sending Emails
+- Timers
+
+If JavaScript waited for every long-running operation to finish, applications would become slow and unresponsive.
+
+To solve this problem, JavaScript supports **Asynchronous Programming**.
+
+Before learning asynchronous programming, let's first understand synchronous programming.
+
+---
+
+# What is Synchronous Programming?
+
+**Synchronous Programming** means JavaScript executes code **one statement at a time**, in the exact order it is written.
+
+The next statement will not execute until the current statement finishes.
+
+## Simple Definition
+
+> **Synchronous Programming executes one task after another.**
+
+---
+
+# Characteristics of Synchronous Programming
+
+- Executes line by line
+- One task at a time
+- Blocking execution
+- Easy to understand
+- Waits until the current task finishes
+
+---
+
+# How Synchronous Programming Works
+
+```text
+Task 1
+
+↓
+
+Task 2
+
+↓
+
+Task 3
+
+↓
+
+Task 4
+```
+
+Each task waits for the previous task to complete.
+
+---
+
+# Example
+
+```javascript
+console.log("Task 1");
+
+console.log("Task 2");
+
+console.log("Task 3");
+```
+
+### Output
+
+```text
+Task 1
+
+Task 2
+
+Task 3
+```
+
+---
+
+# Real-Life Example
+
+Imagine standing in a bank queue.
+
+```text
+Customer 1
+
+↓
+
+Customer 2
+
+↓
+
+Customer 3
+
+↓
+
+Customer 4
+```
+
+Customer 2 must wait until Customer 1 finishes.
+
+This is **Synchronous Programming**.
+
+---
+
+# Problem with Synchronous Programming
+
+Imagine downloading a large file.
+
+```javascript
+console.log("Download Started");
+
+// Download takes 10 seconds
+
+console.log("Download Completed");
+```
+
+The program waits until the download finishes.
+
+During this time, nothing else executes.
+
+This is called **Blocking Execution**.
+
+---
+
+# What is Asynchronous Programming?
+
+**Asynchronous Programming** allows JavaScript to start a long-running task and continue executing the remaining code without waiting.
+
+## Simple Definition
+
+> **Asynchronous Programming allows long-running tasks to execute without blocking other code.**
+
+---
+
+# Characteristics of Asynchronous Programming
+
+- Non-blocking
+- Faster
+- Better user experience
+- Used for APIs
+- Used for databases
+- Used for timers
+- Used for file operations
+
+---
+
+# How Asynchronous Programming Works
+
+```text
+Start
+
+↓
+
+Long Running Task Started
+
+↓
+
+Continue Other Work
+
+↓
+
+Long Running Task Completed
+```
+
+---
+
+# Example
+
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+
+    console.log("Task Completed");
+
+}, 2000);
+
+console.log("End");
+```
+
+### Output
+
+```text
+Start
+
+End
+
+Task Completed
+```
+
+---
+
+# Explanation
+
+1. `"Start"` is printed.
+2. `setTimeout()` starts.
+3. JavaScript does **not** wait.
+4. `"End"` is printed.
+5. After 2 seconds, `"Task Completed"` is printed.
+
+---
+
+# Real-Life Example
+
+Imagine ordering food online.
+
+```text
+Order Pizza
+
+↓
+
+Restaurant Starts Cooking
+
+↓
+
+Watch TV
+
+↓
+
+Pizza Delivered
+```
+
+You don't wait in the kitchen.
+
+This is **Asynchronous Programming**.
+
+---
+
+# Difference Between Synchronous and Asynchronous
+
+| Synchronous | Asynchronous |
+|-------------|--------------|
+| Executes line by line | Executes without blocking |
+| Waits for each task | Doesn't wait |
+| Blocking | Non-blocking |
+| Slower for long tasks | Better performance |
+| One task at a time | Multiple operations can overlap |
+
+---
+
+# What is `async`?
+
+The `async` keyword is used before a function to make it asynchronous.
+
+An `async` function **always returns a Promise**.
+
+## Syntax
+
+```javascript
+async function functionName(){
+
+}
+```
+
+---
+
+# Example
+
+```javascript
+async function greet(){
+
+    return "Hello JavaScript";
+
+}
+
+greet().then(console.log);
+```
+
+### Output
+
+```text
+Hello JavaScript
+```
+
+Even though the function returns a string, JavaScript automatically converts it into a Promise.
+
+---
+
+# What is `await`?
+
+The `await` keyword waits for a Promise to complete before continuing execution inside an `async` function.
+
+## Syntax
+
+```javascript
+const result = await promise;
+```
+
+### Important Points
+
+- Works only with Promises
+- Used inside an `async` function
+- Makes asynchronous code easier to read
+
+---
+
+# Why Do We Need `async/await`?
+
+Before `async/await`, JavaScript mainly used Promise chaining.
+
+Example:
+
+```javascript
+login()
+
+.then(getProfile)
+
+.then(getOrders)
+
+.then(getPayments)
+
+.catch(console.log);
+```
+
+When there are many asynchronous operations, chaining becomes difficult to read.
+
+`async/await` makes the same code look like normal synchronous code.
+
+---
+
+# Promise Example
+
+```javascript
+function fetchData(){
+
+    return new Promise((resolve)=>{
+
+        setTimeout(()=>{
+
+            resolve("Data Loaded");
+
+        },2000);
+
+    });
+
+}
+
+fetchData()
+
+.then(data=>{
+
+    console.log(data);
+
+});
+```
+
+### Output
+
+```text
+Data Loaded
+```
+
+---
+
+# Same Example Using Async/Await
+
+```javascript
+function fetchData(){
+
+    return new Promise((resolve)=>{
+
+        setTimeout(()=>{
+
+            resolve("Data Loaded");
+
+        },2000);
+
+    });
+
+}
+
+async function getData(){
+
+    const result = await fetchData();
+
+    console.log(result);
+
+}
+
+getData();
+```
+
+### Output
+
+```text
+Data Loaded
+```
+
+---
+
+# Step-by-Step Execution
+
+```text
+Call getData()
+
+↓
+
+fetchData() Returns Promise
+
+↓
+
+await Waits
+
+↓
+
+Promise Resolved
+
+↓
+
+Store Result
+
+↓
+
+Print Result
+```
+
+---
+
+# Multiple `await` Example
+
+```javascript
+function getUser(){
+
+    return Promise.resolve("abcd");
+
+}
+
+function getCourse(){
+
+    return Promise.resolve("JavaScript");
+
+}
+
+async function showDetails(){
+
+    const user = await getUser();
+
+    const course = await getCourse();
+
+    console.log(user);
+
+    console.log(course);
+
+}
+
+showDetails();
+```
+
+### Output
+
+```text
+abcd
+
+JavaScript
+```
+
+---
+
+# Async/Await with `try...catch`
+
+This is the most common way to handle errors.
+
+```javascript
+async function getUsers(){
+
+    try{
+
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        const users = await response.json();
+
+        console.log(users);
+
+    }
+
+    catch(error){
+
+        console.log(error.message);
+
+    }
+
+}
+```
+
+---
+
+# Promise vs Async/Await
+
+| Promise | Async/Await |
+|----------|-------------|
+| Uses `.then()` | Uses `await` |
+| Can become difficult to read | Looks like synchronous code |
+| Better for simple chains | Better for complex operations |
+| Uses `.catch()` | Uses `try...catch` |
+
+---
+
+# Real-World Uses
+
+`async` and `await` are widely used for:
+
+- Fetch API
+- Axios
+- Database Queries
+- Login Systems
+- Payment Gateway
+- Cloud Storage
+- Authentication
+- Reading Files
+- Uploading Images
+- Sending Emails
+
+---
+
+**Answer**
+
+- API Calls
+- Fetch API
+- Axios
+- Database Operations
+- Authentication
+- Payment Systems
+- File Uploads
+- Cloud Services
+
+---
+
 # Summary
 
-- Higher-Order Functions accept another function as an argument.
-- `map()` transforms every element and returns a new array.
-- `filter()` returns only the elements that satisfy a condition.
-- `reduce()` converts an array into a single value.
-- All three methods are widely used in JavaScript, React, Node.js, and MERN Stack development.
-- These methods can be combined using **Method Chaining** to write clean and efficient code.
+- JavaScript supports both **Synchronous** and **Asynchronous** programming.
+- **Synchronous Programming** executes one task at a time and waits for each task to finish.
+- **Asynchronous Programming** allows long-running tasks to execute without blocking other code.
+- The `async` keyword makes a function asynchronous and automatically returns a Promise.
+- The `await` keyword waits for a Promise to settle before continuing execution inside an `async` function.
+- `async/await` provides a cleaner and more readable way to write asynchronous code than Promise chaining.
+- Use `try...catch` with `async/await` for proper error handling.
+- `async/await` is widely used in modern JavaScript, React, Node.js, Express.js, and MERN Stack applications.
+
+---
+
+
+
+
+
+
+
+
+---
+
+
+# JavaScript Promises
+
+
+# Introduction to Promises
+
+Promises are one of the most important concepts in modern JavaScript.
+
+A Promise is used to handle **asynchronous operations**, such as:
+
+- API Calls
+- Database Queries
+- Authentication
+- File Uploads
+- File Downloads
+- Payment Processing
+- Sending Emails
+- Reading Files
+- Timers (`setTimeout`)
+- Loading Data from a Server
+
+Promises make asynchronous code easier to read, write, and maintain.
+
+---
+
+# What is a Promise?
+
+A **Promise** is an object that represents the **eventual completion (success)** or **failure** of an asynchronous operation.
+
+In simple words:
+
+> **A Promise is a guarantee that "I will give you the result later."**
+
+A Promise doesn't immediately return the final result. Instead, it returns a Promise object, and JavaScript notifies us when the operation is completed.
+
+---
+
+# Why Do We Need Promises?
+
+Before Promises, asynchronous operations were handled using callbacks.
+
+When multiple callbacks were nested together, the code became difficult to read and maintain. This problem is known as **Callback Hell**.
+
+Promises solve this problem by providing a cleaner and more readable way to handle asynchronous operations.
+
+Benefits of Promises:
+
+- Cleaner code
+- Better error handling
+- Easier to read
+- Supports chaining
+- Avoids Callback Hell
+- Widely used with APIs and databases
+
+---
+
+# Real-Life Example
+
+Imagine you order a pizza online.
+
+```text
+Place Order
+
+↓
+
+Restaurant Starts Preparing
+
+↓
+
+Pizza Delivered
+```
+
+There are three possible situations.
+
+### 1. Waiting
+
+```text
+Pending
+```
+
+Your order is being prepared.
+
+---
+
+### 2. Delivered Successfully
+
+```text
+Fulfilled
+```
+
+You receive your pizza successfully.
+
+---
+
+### 3. Order Failed
+
+```text
+Rejected
+```
+
+Something went wrong with your order.
+
+This is exactly how JavaScript Promises work.
+
+---
+
+# Promise States
+
+Every Promise has **three states**.
+
+```text
+Promise
+
+↓
+
+Pending
+
+↓
+
+Fulfilled (Resolved)
+
+OR
+
+Rejected
+```
+
+---
+
+## 1. Pending
+
+The operation has started but has not finished yet.
+
+Examples
+
+- Loading...
+- Request Sent...
+- Waiting for Response...
+
+---
+
+## 2. Fulfilled (Resolved)
+
+The operation completed successfully.
+
+Examples
+
+- Login Successful
+- Data Received
+- Payment Successful
+
+---
+
+## 3. Rejected
+
+The operation failed.
+
+Examples
+
+- Network Error
+- Login Failed
+- Payment Failed
+
+---
+
+# Creating a Promise
+
+A Promise is created using the `Promise` constructor.
+
+## Syntax
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    // Asynchronous operation
+
+});
+```
+
+The constructor receives a callback function with two parameters:
+
+- `resolve()` → Called when the operation succeeds.
+- `reject()` → Called when the operation fails.
+
+---
+
+# Example 1 - Promise Resolved
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    resolve("Promise Completed Successfully");
+
+});
+
+console.log(promise);
+```
+
+Output
+
+```text
+Promise { fulfilled }
+```
+
+---
+
+# Example 2 - Promise Rejected
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    reject("Something Went Wrong");
+
+});
+
+console.log(promise);
+```
+
+Output
+
+```text
+Promise { rejected }
+```
+
+---
+
+# Understanding resolve()
+
+`resolve()` is called when the asynchronous operation completes successfully.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    resolve("Data Loaded Successfully");
+
+});
+```
+
+---
+
+# Understanding reject()
+
+`reject()` is called when the operation fails.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    reject("Unable to Load Data");
+
+});
+```
+
+---
+
+# Using .then()
+
+The `.then()` method executes when the Promise is resolved successfully.
+
+## Syntax
+
+```javascript
+promise.then(function(result){
+
+});
+```
+
+---
+
+## Example
+
+```javascript
+const promise = new Promise((resolve) => {
+
+    resolve("Login Successful");
+
+});
+
+promise.then(function(result){
+
+    console.log(result);
+
+});
+```
+
+Output
+
+```text
+Login Successful
+```
+
+---
+
+# Using .catch()
+
+The `.catch()` method executes when the Promise is rejected.
+
+## Syntax
+
+```javascript
+promise.catch(function(error){
+
+});
+```
+
+---
+
+## Example
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+
+    reject("Invalid Username or Password");
+
+});
+
+promise.catch(function(error){
+
+    console.log(error);
+
+});
+```
+
+Output
+
+```text
+Invalid Username or Password
+```
+
+---
+
+# Using .finally()
+
+The `.finally()` method always executes, whether the Promise is resolved or rejected.
+
+## Example
+
+```javascript
+const promise = new Promise((resolve) => {
+
+    resolve("Payment Successful");
+
+});
+
+promise
+
+.then(result => {
+
+    console.log(result);
+
+})
+
+.finally(() => {
+
+    console.log("Transaction Completed");
+
+});
+```
+
+Output
+
+```text
+Payment Successful
+
+Transaction Completed
+```
+
+---
+
+# Example Using setTimeout()
+
+```javascript
+const promise = new Promise((resolve) => {
+
+    setTimeout(() => {
+
+        resolve("Data Loaded");
+
+    }, 3000);
+
+});
+
+promise.then(result => {
+
+    console.log(result);
+
+});
+```
+
+Output (after 3 seconds)
+
+```text
+Data Loaded
+```
+
+---
+
+# Promise Chaining
+
+Multiple `.then()` methods can be chained together.
+
+```javascript
+Promise.resolve(10)
+
+.then(number => number * 2)
+
+.then(number => number + 5)
+
+.then(number => number * 10)
+
+.then(result => {
+
+    console.log(result);
+
+});
+```
+
+Output
+
+```text
+250
+```
+
+---
+
+# Real-World Example 1 - User Login
+
+```javascript
+function login(){
+
+    return new Promise((resolve, reject) => {
+
+        const success = true;
+
+        if(success){
+
+            resolve("Login Successful");
+
+        }else{
+
+            reject("Login Failed");
+
+        }
+
+    });
+
+}
+
+login()
+
+.then(result => {
+
+    console.log(result);
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+});
+```
+
+Output
+
+```text
+Login Successful
+```
+
+---
+
+# Real-World Example 2 - Food Delivery
+
+```javascript
+function orderFood(){
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+
+            resolve("Pizza Delivered");
+
+        }, 2000);
+
+    });
+
+}
+
+orderFood()
+
+.then(result => {
+
+    console.log(result);
+
+});
+```
+
+Output
+
+```text
+Pizza Delivered
+```
+
+---
+
+# Promise Flow
+
+```text
+Create Promise
+
+↓
+
+Pending
+
+↓
+
+Success?
+
+↓
+
+Yes ─────────► .then()
+
+↓
+
+No ─────────► .catch()
+
+↓
+
+.finally()
+```
+
+---
+
+# Promise.resolve()
+
+Creates a Promise that is already resolved.
+
+```javascript
+Promise.resolve("Success")
+
+.then(console.log);
+```
+
+Output
+
+```text
+Success
+```
+
+---
+
+# Promise.reject()
+
+Creates a Promise that is already rejected.
+
+```javascript
+Promise.reject("Failed")
+
+.catch(console.log);
+```
+
+Output
+
+```text
+Failed
+```
+
+---
+
+# Promise vs Callback
+
+| Callback | Promise |
+|----------|----------|
+| Difficult to Read | Easy to Read |
+| Nested Code | Cleaner Code |
+| Callback Hell | Promise Chaining |
+| Hard Error Handling | Better Error Handling |
+| Less Maintainable | More Maintainable |
+
+---
+
+# Real-World Uses of Promises
+
+Promises are used in:
+
+- Fetch API
+- Axios API Calls
+- Database Queries
+- User Login
+- Payment Gateways
+- Cloud Storage
+- Authentication
+- File Upload
+- File Download
+- Reading Files
+- Notifications
+- Sending Emails
+
+---
+
+# Best Practices
+
+- Always handle errors using `.catch()`.
+- Use `.finally()` for cleanup tasks.
+- Avoid deeply nested Promise chains.
+- Prefer `async/await` for complex asynchronous code.
+- Return Promises instead of nesting them.
+
+---
+
+# Interview Questions
+
+### Question 1
+
+What is a Promise?
+
+**Answer**
+
+A Promise is an object that represents the eventual success or failure of an asynchronous operation.
+
+---
+
+### Question 2
+
+How many states does a Promise have?
+
+**Answer**
+
+- Pending
+- Fulfilled (Resolved)
+- Rejected
+
+---
+
+### Question 3
+
+What is `resolve()`?
+
+**Answer**
+
+`resolve()` is called when the asynchronous operation completes successfully.
+
+---
+
+### Question 4
+
+What is `reject()`?
+
+**Answer**
+
+`reject()` is called when the asynchronous operation fails.
+
+---
+
+### Question 5
+
+What is `.then()`?
+
+**Answer**
+
+Used to handle successful Promise results.
+
+---
+
+### Question 6
+
+What is `.catch()`?
+
+**Answer**
+
+Used to handle errors in a Promise.
+
+---
+
+### Question 7
+
+What is `.finally()`?
+
+**Answer**
+
+Executes after the Promise settles, whether it succeeds or fails.
+
+---
+
+### Question 8
+
+What is Promise Chaining?
+
+**Answer**
+
+Executing multiple asynchronous operations sequentially using multiple `.then()` methods.
+
+---
+
+### Question 9
+
+What is the difference between Callback and Promise?
+
+**Answer**
+
+Promises provide cleaner syntax, better error handling, and avoid Callback Hell.
+
+---
+
+### Question 10
+
+Where are Promises used?
+
+**Answer**
+
+Promises are commonly used with APIs, databases, authentication, payment systems, file handling, and asynchronous JavaScript operations.
+
+---
+
+# Summary
+
+- A **Promise** is used to handle asynchronous operations.
+- Every Promise has **three states**:
+  - Pending
+  - Fulfilled (Resolved)
+  - Rejected
+- `resolve()` indicates success.
+- `reject()` indicates failure.
+- `.then()` handles successful results.
+- `.catch()` handles errors.
+- `.finally()` always executes after the Promise settles.
+- Promises make asynchronous code cleaner, more readable, and easier to maintain.
+- Promises are widely used in **React**, **Node.js**, **Express.js**, and modern JavaScript applications.
