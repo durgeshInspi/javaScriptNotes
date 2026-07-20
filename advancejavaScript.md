@@ -3904,3 +3904,504 @@ Promises are commonly used with APIs, databases, authentication, payment systems
 - `.finally()` always executes after the Promise settles.
 - Promises make asynchronous code cleaner, more readable, and easier to maintain.
 - Promises are widely used in **React**, **Node.js**, **Express.js**, and modern JavaScript applications.
+
+# 📘 JavaScript Fetch API
+
+> Complete Notes for Beginners to Advanced
+
+---
+
+# Table of Contents
+
+* What is an API?
+* What is Fetch API?
+* Why Do We Use Fetch API?
+* How Fetch Works
+* Fetch Syntax
+* Promise and Fetch
+* HTTP Methods
+* GET Request
+* POST Request
+* PUT Request
+* PATCH Request
+* DELETE Request
+* Request Headers
+* Request Body
+* Response Object
+* `response.json()`
+* `JSON.stringify()`
+* HTTP Status Codes
+* Error Handling
+* Fetch with Async/Await
+* Fetch Workflow
+* Fetch vs Axios
+* Fetch vs XMLHttpRequest
+* Advantages of Fetch
+* Limitations of Fetch
+* Best Practices
+* Interview Questions
+* Summary
+
+---
+
+# What is an API?
+
+API stands for **Application Programming Interface**.
+
+An API acts as a bridge between two applications, allowing them to exchange data.
+
+### Example
+
+Suppose you have a weather application.
+
+```text
+Weather App
+      │
+      ▼
+ Weather API
+      │
+      ▼
+ Weather Database
+      │
+      ▼
+ Weather Information
+```
+
+The application requests weather information from the API, and the API returns the response.
+
+---
+
+# What is Fetch API?
+
+The **Fetch API** is a built-in JavaScript function used to send HTTP requests to a server and receive HTTP responses.
+
+It is the modern way of communicating with REST APIs.
+
+Fetch always returns a **Promise**, so it works with:
+
+* `.then()`
+* `.catch()`
+* `async/await`
+
+---
+
+# Why Do We Use Fetch API?
+
+We use Fetch whenever our application needs to communicate with a backend server.
+
+Common examples include:
+
+* User Login
+* User Registration
+* Product Listing
+* Dashboard
+* Payment Gateway
+* Upload Images
+* Update Profile
+* Delete Records
+* Chat Applications
+* Weather Applications
+
+Without Fetch, the browser cannot request or send data to the server.
+
+---
+
+# How Fetch Works
+
+```text
+Browser
+
+↓
+
+fetch()
+
+↓
+
+HTTP Request
+
+↓
+
+Server
+
+↓
+
+Database
+
+↓
+
+Response
+
+↓
+
+Browser
+
+↓
+
+Display Data
+```
+
+---
+
+# Fetch Syntax
+
+```javascript
+fetch(url);
+```
+
+Example
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/users");
+```
+
+---
+
+# Fetch Returns a Promise
+
+Every Fetch request returns a Promise.
+
+```text
+fetch()
+
+↓
+
+Promise
+
+↓
+
+Response Object
+
+↓
+
+JavaScript Object
+```
+
+---
+
+# HTTP Methods
+
+| Method | Purpose                |
+| ------ | ---------------------- |
+| GET    | Retrieve data          |
+| POST   | Create new data        |
+| PUT    | Replace existing data  |
+| PATCH  | Update specific fields |
+| DELETE | Remove data            |
+
+---
+
+# GET Request
+
+Used to retrieve data from the server.
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/users")
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log(error));
+```
+
+---
+
+# POST Request
+
+Used to create new data.
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        title: "JavaScript",
+        body: "Fetch API",
+        userId: 1
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log(error));
+```
+
+---
+
+# PUT Request
+
+Used to replace an existing resource.
+
+```javascript
+fetch(url, {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: "Durgesh",
+        city: "Lucknow"
+    })
+});
+```
+
+---
+
+# PATCH Request
+
+Used to update only selected fields.
+
+```javascript
+fetch(url, {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        city: "Delhi"
+    })
+});
+```
+
+---
+
+# DELETE Request
+
+Used to remove data.
+
+```javascript
+fetch(url, {
+    method: "DELETE"
+});
+```
+
+---
+
+# Request Headers
+
+Headers provide additional information to the server.
+
+Example
+
+```javascript
+headers: {
+    "Content-Type": "application/json"
+}
+```
+
+Common headers:
+
+* Content-Type
+* Authorization
+* Accept
+* Cookie
+
+---
+
+# Request Body
+
+The request body contains the data sent to the server.
+
+```javascript
+body: JSON.stringify({
+    email: "student@gmail.com",
+    password: "123456"
+})
+```
+
+---
+
+# Response Object
+
+The Fetch API returns a **Response** object.
+
+Useful properties:
+
+* `response.ok`
+* `response.status`
+* `response.headers`
+* `response.url`
+* `response.type`
+
+Example
+
+```javascript
+fetch(url)
+.then(response => {
+    console.log(response);
+});
+```
+
+---
+
+# Why Do We Use `response.json()`?
+
+Servers usually send data in JSON format.
+
+Example JSON
+
+```json
+{
+    "id": 1,
+    "name": "Durgesh",
+    "city": "Lucknow"
+}
+```
+
+`response.json()` converts the JSON response into a JavaScript object.
+
+```javascript
+fetch(url)
+.then(response => response.json())
+.then(data => console.log(data));
+```
+
+---
+
+# Why Do We Use `JSON.stringify()`?
+
+JavaScript objects cannot be sent directly to the server.
+
+We convert them into JSON strings.
+
+```javascript
+const user = {
+    name: "Durgesh",
+    city: "Lucknow"
+};
+
+const jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+```
+
+Output
+
+```text
+{"name":"Durgesh","city":"Lucknow"}
+```
+
+---
+
+# HTTP Status Codes
+
+| Code | Meaning               |
+| ---- | --------------------- |
+| 200  | Success               |
+| 201  | Created               |
+| 204  | No Content            |
+| 400  | Bad Request           |
+| 401  | Unauthorized          |
+| 403  | Forbidden             |
+| 404  | Not Found             |
+| 500  | Internal Server Error |
+
+---
+
+# Error Handling
+
+Always check whether the request was successful.
+
+```javascript
+fetch(url)
+.then(response => {
+
+    if (!response.ok) {
+        throw new Error("Request Failed");
+    }
+
+    return response.json();
+
+})
+.then(data => console.log(data))
+.catch(error => console.log(error.message));
+```
+
+---
+
+# Fetch with Async/Await
+
+```javascript
+async function getUsers() {
+
+    try {
+
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+        const data = await response.json();
+
+        console.log(data);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+getUsers();
+```
+
+---
+
+# Fetch Workflow
+
+```text
+User Click
+
+↓
+
+fetch()
+
+↓
+
+HTTP Request
+
+↓
+
+Server
+
+↓
+
+Database
+
+↓
+
+Response
+
+↓
+
+response.json()
+
+↓
+
+JavaScript Object
+
+↓
+
+Display Data
+```
+
+---
+
+# Fetch vs Axios
+
+| Fetch API                  | Axios                     |
+| -------------------------- | ------------------------- |
+| Built into browser         | External library          |
+| No installation            | Install with npm          |
+| Requires `response.json()` | Automatically parses JSON |
+| Lightweight                | More features             |
+
+---
+
+# Fetch vs XMLHttpRequest
+
+| Fetch                | XMLHttpRequest                        |
+| -------------------- | ------------------------------------- |
+| Promise-based        | Callback-based                        |
+| Cleaner syntax       | More verbose                          |
+| Supports async/await | Does not directly support async/await |
+| Modern               | Older API                             |
+
+---
+
