@@ -1410,5 +1410,639 @@ Imagine you are designing a house.
 - **JSX** lets you describe both the structure and dynamic content together in one place, making development easier.
 
 
+# Module 3: Components in React
+
+## Introduction
+
+Components are the building blocks of a React application.
+
+A React application is made up of multiple small and reusable components. Each component represents a part of the user interface (UI).
+
+For example, a website may have:
+
+- Navbar
+- Sidebar
+- Footer
+- Login Form
+- Product Card
+- Profile Card
+
+Each of these can be created as a separate React component.
+
+---
+
+# What is a Component?
+
+A Component is a JavaScript function that returns JSX (HTML-like code).
+
+In simple words:
+
+> A Component is a reusable piece of UI that can be used multiple times in a React application.
+
+---
+
+# Why Do We Use Components?
+
+Without components, we would have to write the same code repeatedly.
+
+Components help us:
+
+- Reuse code
+- Reduce duplication
+- Make applications easier to maintain
+- Organize code better
+- Build large applications efficiently
+
+---
+
+# Types of Components
+
+There are mainly two types of components.
+
+## 1. Functional Component
+
+A Functional Component is a JavaScript function that returns JSX.
+
+Example:
+
+```jsx
+function Welcome() {
+    return <h1>Welcome to React</h1>;
+}
+
+export default Welcome;
+```
+
+---
+
+## 2. Class Component
+
+A Class Component is created using ES6 classes.
+
+Example:
+
+```jsx
+import React, { Component } from "react";
+
+class Welcome extends Component {
+    render() {
+        return <h1>Welcome to React</h1>;
+    }
+}
+
+export default Welcome;
+```
+
+> Modern React mainly uses Functional Components because they are simpler and support Hooks.
+
+---
+
+# Creating Your First Component
+
+Create a file named:
+
+```
+Header.jsx
+```
+
+```jsx
+function Header() {
+    return (
+        <h1>Welcome to React</h1>
+    );
+}
+
+export default Header;
+```
+
+Use it inside `App.jsx`:
+
+```jsx
+import Header from "./Header";
+
+function App() {
+    return (
+        <Header />
+    );
+}
+
+export default App;
+```
+
+---
+
+# Naming Rules for Components
+
+- Component names must start with a capital letter.
+- Use meaningful names.
+- One component should perform one specific task.
+
+✅ Correct
+
+```jsx
+Navbar
+Footer
+Login
+StudentCard
+```
+
+❌ Incorrect
+
+```jsx
+navbar
+test
+abc
+```
+
+---
+
+# Exporting Components
+
+## Default Export
+
+```jsx
+function Home() {
+    return <h1>Home</h1>;
+}
+
+export default Home;
+```
+
+Import:
+
+```jsx
+import Home from "./Home";
+```
+
+---
+
+## Named Export
+
+```jsx
+export function Home() {
+    return <h1>Home</h1>;
+}
+```
+
+Import:
+
+```jsx
+import { Home } from "./Home";
+```
+
+---
+
+# Nested Components
+
+A component can contain another component.
+
+```jsx
+function Navbar() {
+    return <h2>Navbar</h2>;
+}
+
+function Footer() {
+    return <h2>Footer</h2>;
+}
+
+function App() {
+    return (
+        <>
+            <Navbar />
+            <Footer />
+        </>
+    );
+}
+```
+
+---
+
+# Reusable Components
+
+One component can be used multiple times.
+
+```jsx
+function Button() {
+    return (
+        <button>Click Me</button>
+    );
+}
+
+function App() {
+    return (
+        <>
+            <Button />
+            <Button />
+            <Button />
+        </>
+    );
+}
+```
+
+---
+
+# Component File Structure
+
+```
+src
+
+│
+
+├── components
+
+│      Navbar.jsx
+│      Footer.jsx
+│      Button.jsx
+│      Student.jsx
+
+│
+
+├── App.jsx
+
+├── main.jsx
+```
+
+---
+
+# Advantages of Components
+
+- Reusable
+- Easy to Maintain
+- Easy to Test
+- Better Code Organization
+- Faster Development
+- Cleaner Code
+
+---
+
+# Interview Questions
+
+### What is a Component?
+
+A Component is a reusable piece of UI written as a JavaScript function that returns JSX.
+
+### How many types of components are there?
+
+- Functional Component
+- Class Component
+
+### Which component type is recommended?
+
+Functional Components.
+
+---
+
+# Summary
+
+- Components are the building blocks of React.
+- Components return JSX.
+- Components are reusable.
+- Functional Components are most commonly used.
+- Components should have meaningful names.
+- Components can be nested inside other components.
+
+---
+
+# Module 4: JSX (JavaScript XML)
+
+## Introduction
+
+JSX stands for **JavaScript XML**.
+
+It is a syntax extension for JavaScript that allows developers to write HTML-like code inside JavaScript.
+
+JSX makes React code easier to read and write.
+
+---
+
+# Why JSX?
+
+Without JSX, developers need to use `React.createElement()`, which is difficult to read.
+
+Without JSX:
+
+```javascript
+React.createElement(
+    "h1",
+    null,
+    "Hello React"
+);
+```
+
+With JSX:
+
+```jsx
+<h1>Hello React</h1>
+```
+
+---
+
+# Features of JSX
+
+- HTML-like syntax
+- Easy to understand
+- Supports JavaScript expressions
+- Supports Components
+- Improves readability
+
+---
+
+# JavaScript Expressions in JSX
+
+Use curly braces `{}`.
+
+```jsx
+const name = "Rahul";
+
+function App() {
+    return (
+        <h1>Hello {name}</h1>
+    );
+}
+```
+
+---
+
+# JSX Rules
+
+## Single Parent Element
+
+```jsx
+return (
+    <div>
+        <h1>Hello</h1>
+        <p>React</p>
+    </div>
+);
+```
+
+---
+
+## Self Closing Tags
+
+```jsx
+<img src="logo.png" />
+<input />
+<br />
+```
+
+---
+
+## className
+
+```jsx
+<div className="container">
+</div>
+```
+
+---
+
+## htmlFor
+
+```jsx
+<label htmlFor="email">
+Email
+</label>
+```
+
+---
+
+## Comments
+
+```jsx
+{/* This is JSX Comment */}
+```
+
+---
+
+## Inline CSS
+
+```jsx
+<h1 style={{color:"red"}}>
+Hello
+</h1>
+```
+
+---
+
+## Rendering Variables
+
+```jsx
+const age = 20;
+
+<p>{age}</p>
+```
+
+---
+
+## Rendering Images
+
+```jsx
+<img src="/images/logo.png" alt="Logo" />
+```
+
+---
+
+# Advantages of JSX
+
+- Easy to read
+- Easy to write
+- Cleaner code
+- Less code
+- Supports JavaScript
+- Better developer experience
+
+---
+
+# Summary
+
+- JSX stands for JavaScript XML.
+- JSX looks like HTML.
+- JSX is converted into JavaScript by Babel.
+- JavaScript expressions use `{}`.
+- JSX must return one parent element.
+
+---
+
+# Module 5: Props
+
+## Introduction
+
+Props stands for **Properties**.
+
+Props are used to send data from one component to another.
+
+React follows one-way data flow.
+
+```
+Parent Component
+        ↓
+   Child Component
+```
+
+---
+
+# What are Props?
+
+Props are read-only values passed from a parent component to a child component.
+
+---
+
+# Why Use Props?
+
+Props help us:
+
+- Share data
+- Reuse components
+- Make components dynamic
+- Reduce duplicate code
+
+---
+
+# Passing Props
+
+Parent Component
+
+```jsx
+<Student
+    name="Rahul"
+    age={20}
+/>
+```
+
+Child Component
+
+```jsx
+function Student(props) {
+    return (
+        <>
+            <h2>{props.name}</h2>
+            <p>{props.age}</p>
+        </>
+    );
+}
+```
+
+---
+
+# Props Destructuring
+
+Instead of:
+
+```jsx
+function Student(props) {
+    return <h1>{props.name}</h1>;
+}
+```
+
+Use:
+
+```jsx
+function Student({ name, age }) {
+    return (
+        <>
+            <h1>{name}</h1>
+            <p>{age}</p>
+        </>
+    );
+}
+```
+
+---
+
+# Multiple Props
+
+```jsx
+<Employee
+    name="Amit"
+    department="IT"
+    salary={50000}
+/>
+```
+
+---
+
+# Default Props
+
+```jsx
+function Student({ name = "Unknown" }) {
+    return (
+        <h1>{name}</h1>
+    );
+}
+```
+
+---
+
+# Children Props
+
+Parent
+
+```jsx
+<Card>
+    <h1>Hello Students</h1>
+</Card>
+```
+
+Child
+
+```jsx
+function Card({ children }) {
+    return (
+        <div>
+            {children}
+        </div>
+    );
+}
+```
+
+---
+
+# Props are Read-Only
+
+✅ Correct
+
+```jsx
+function Student({ name }) {
+    return <h1>{name}</h1>;
+}
+```
+
+❌ Incorrect
+
+```jsx
+name = "Amit";
+```
+
+Never modify props directly.
+
+---
+
+# Advantages of Props
+
+- Reusable Components
+- Dynamic Data
+- Better Communication
+- Cleaner Code
+- Easy Maintenance
+
+---
+
+# Parent to Child Communication
+
+```
+Parent
+
+↓
+
+Props
+
+↓
+
+Child
+```
+
+
+
 
 
